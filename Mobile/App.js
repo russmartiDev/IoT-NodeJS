@@ -11,102 +11,86 @@ import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  StatusBar,
+  TouchableOpacity,
   StyleSheet,
   Text,
   useColorScheme,
   View,
+  ImageBackground,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App: () => Node = () => {
+
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.Container}>
+		<View style={styles.dataContainer}>
+			<Text style={styles.tempText}>Temperature</Text>
+			<Text style={styles.tempTextC}>30 °C</Text>
+		</View>
+		<View style={styles.dataContainer}>
+			<Text style={styles.tempText}>Humidity</Text>
+			<Text style={styles.tempTextC}>70%</Text>
+		</View>
+		<View style={{flexDirection:'row', flexWrap:'wrap', }}>
+			<TouchableOpacity style={styles.button}>
+				<Text>RGB red</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.button}>
+				<Text>RGB blue</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.button}>
+				<Text>RGB green</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.button}>
+				<Text>LED 1</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.button}>
+				<Text>LED 2</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.button}>
+				<Text>Party Mode</Text>
+			</TouchableOpacity>
+        </View>
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+Container: {
+    margin: 25,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  dataContainer: {
+	  
+	height: 150,
+    width: "100%",
+	backgroundColor: "white",
+	borderRadius: 20,
+	elevation: 3,
+	shadowColor: '#52006A',
+	padding: 15,
+	marginVertical: 10
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  tempText: {
+	 fontSize: 30,
   },
-  highlight: {
-    fontWeight: '700',
+  tempTextC: {
+	  fontSize: 35,
+	  fontWeight: "bold"
   },
+  button: {
+	width: "43%",
+	height: 90,
+	backgroundColor: "white",
+	marginHorizontal: 10,
+	borderRadius: 10,
+	elevation: 2,
+	padding: 10,
+	marginVertical: 10
+  }
+
+
 });
 
 export default App;
