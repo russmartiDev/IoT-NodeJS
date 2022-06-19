@@ -3,9 +3,7 @@ This Project is about controlling Micro Controller Modules in a mobile applicati
 
 # How it Works?
 <img src="img/diagram.png"></img>
+First, the mobile application will access the API to send or get data from the server then when the server receive the request it will emit the command (get data, turn switch) into micro controller then the micro controller will send a response into the server
 
-# Screenshots
-<img src="screenshot/screenshot1.png" alt="screenshot1">
-<img src="screenshot/screenshot2.png" alt="screenshot2">
-<img src="screenshot/screenshot3.png" alt="screenshot3">
-
+# Demo
+<a href="https://youtu.be/nYZWLHO9j18">Video Demo</a>
